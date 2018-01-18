@@ -36,7 +36,7 @@ Public Class Document
         If (Index >= 0 AndAlso Index <= Me.Count - 1) Then
             Return Me.ElementAt(Index).Value.Records.Where(Function(x) x.Type = GetType(T)).Select(Function(y) CType(y.Value, T)).ToArray
         End If
-        Throw New Exception(String.Format("index '{0}' does not exist", Index))
+        Throw New Exception(String.Format("index '{0}' is out of range", Index))
     End Function
     Public Function GetValuesAtColumn(Of T)(Name As String) As T()
         If (Me.ContainsKey(Name.ToLower)) Then
